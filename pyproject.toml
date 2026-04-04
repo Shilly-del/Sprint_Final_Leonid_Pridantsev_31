@@ -1,0 +1,10 @@
+[project]
+name = "sprint-final-leonid-pridantsev-31"
+version = "0.1.0"
+description = "Add your description here"
+readme = "README.md"
+requires-python = ">=3.11"
+dependencies = [
+    "requests-toolbelt>=1.0.0",
+    "ruff>=0.15.9",
+]
