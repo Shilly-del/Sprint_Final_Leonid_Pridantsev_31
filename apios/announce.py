@@ -2,16 +2,16 @@ import allure
 import random
 import requests
 
-from constants import Url, Announce_Data
+from constants import Url, AnnounceData
 from helpers.data_gen import generate_random_string
 
 class Announce:
     @allure.step('Создание данных объявления')
     def __init__(self):
         self.title = generate_random_string(7)
-        self.category = Announce_Data.CATEGORIES[0]
-        self.condition = Announce_Data.COND[0]
-        self.city = Announce_Data.CITIES[0]
+        self.category = AnnounceData.CATEGORIES[0]
+        self.condition = AnnounceData.COND[0]
+        self.city = AnnounceData.CITIES[0]
         self.description = generate_random_string(10)
         self.price = random.randint(1000, 10000)
         self.payload = {

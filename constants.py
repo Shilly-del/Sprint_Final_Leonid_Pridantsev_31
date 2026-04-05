@@ -6,7 +6,12 @@ class Url:
     EDIT_ANNOUNCE = f'{API}/update-offer'
     REMOVE_ANNOUNCE = f'{API}/listings'
 
-class Announce_Data:
+class AnnounceData:
     COND = ['Новый', 'Б/У']
     CATEGORIES = ['Авто', 'Книги', 'Садоводство', 'Хобби', 'Технологии']
     CITIES = ['Москва', 'Санкт-Петербург', 'Новосибирск', 'Екатеринбург', 'Нижний Новгород', 'Казань']
+
+class ApiMessage:
+    INTOKEN = "Токен не действителен"
+    REMAIL = "Почта уже используется"
+    ANNONCEREM = "Объявление удалено успешно"

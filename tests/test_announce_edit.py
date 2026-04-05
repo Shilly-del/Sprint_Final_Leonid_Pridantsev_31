@@ -2,7 +2,7 @@ import pytest
 import allure
 import requests
 
-from constants import Url, Announce_Data
+from constants import Url, AnnounceData, ApiMessage
 
 
 class TestAnnounceEdit:
@@ -23,7 +23,7 @@ class TestAnnounceEdit:
         assert edit.status_code == 200
         assert old != new
 
-    @pytest.mark.parametrize('new_category', Announce_Data.CATEGORIES[1:])
+    @pytest.mark.parametrize('new_category', AnnounceData.CATEGORIES[1:])
     @allure.title('Успешное редактирование поля категории объявления')
     def test_category(self, announce, new_category):
         """
@@ -49,14 +49,14 @@ class TestAnnounceEdit:
         user, announce = announce
         old = announce.condition
         url = f'{Url.EDIT_ANNOUNCE}/{announce.id}'
-        announce.set_condition(Announce_Data.COND[1])
+        announce.set_condition(AnnounceData.COND[1])
         edit = requests.patch(url, headers=user.headers, files=announce.payload)
         new = edit.json()["condition"]
 
         assert edit.status_code == 200
         assert old != new
 
-    @pytest.mark.parametrize('new_city', Announce_Data.CITIES[1:])
+    @pytest.mark.parametrize('new_city', AnnounceData.CITIES[1:])
     @allure.title('Успешное редактирование города в объявлении')
     def test_city(self, announce, new_city):
         """
@@ -118,5 +118,5 @@ class TestAnnounceEdit:
         edit = requests.patch(url, headers=user.headers_bt, files=announce.payload)
 
         assert edit.status_code == 401
-        assert edit.json()['messege'] == "Токен не действителен"
+        assert edit.json()['messege'] == ApiMessage.INTOKEN
 

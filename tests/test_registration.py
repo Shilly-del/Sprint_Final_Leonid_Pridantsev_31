@@ -1,7 +1,7 @@
 import allure
 import requests
 
-from constants import Url
+from constants import Url, ApiMessage
 from apios.user import User
 
 
@@ -32,5 +32,5 @@ class TestRegistration:
         reg = requests.post(Url.SIGNUP, data=user.payload)
 
         assert reg.status_code == 400
-        assert reg.json()["message"] == "Почта уже используется"
+        assert reg.json()["message"] == ApiMessage.REMAIL
 

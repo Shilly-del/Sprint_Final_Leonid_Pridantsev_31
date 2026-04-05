@@ -3,12 +3,12 @@ import allure
 import requests
 
 from apios.announce import Announce
-from constants import Url, Announce_Data
+from constants import Url, AnnounceData
 
 
 class TestAnnounceCreate:
 
-    @pytest.mark.parametrize('category', Announce_Data.CATEGORIES)
+    @pytest.mark.parametrize('category', AnnounceData.CATEGORIES)
     @allure.title('Успешное создание объявления в любой категории')
     def test_create(self, user, category):
         """

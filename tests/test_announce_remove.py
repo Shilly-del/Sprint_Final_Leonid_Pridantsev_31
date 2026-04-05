@@ -1,7 +1,7 @@
 import allure
 import requests
 
-from constants import Url
+from constants import Url, ApiMessage
 
 
 class TestAnnounceRemove:
@@ -17,5 +17,4 @@ class TestAnnounceRemove:
         r = requests.delete(url, headers=user.headers, files=announce.payload)
 
         assert r.status_code == 200
-        assert r.json()['message'] == "Объявление удалено успешно"
-
+        assert r.json()['message'] == ApiMessage.ANNONCEREM
