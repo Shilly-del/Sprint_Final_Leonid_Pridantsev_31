@@ -16,7 +16,11 @@ class TestSignIn:
         для создания новых объектов. В данном случае более подходит код 200.
         """
         
-        reg = requests.post(Url.SIGNIN, data=user.payload)
+        r = requests.post(Url.SIGNIN, data=user.payload)
+        data = r.json()
 
-        assert reg.status_code == 200
+        assert r.status_code == 200
+        assert data['user']['email'] == user.email
+        assert 'token' in data
+
 

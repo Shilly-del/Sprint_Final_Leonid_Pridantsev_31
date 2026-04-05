@@ -18,7 +18,14 @@ class TestAnnounceCreate:
         announce = Announce()
         announce.set_category(category)
         headers = user.headers
-        anr = requests.post(Url.CREATE_ANNOUNCE, headers=headers, files=announce.payload)
+        r = requests.post(Url.CREATE_ANNOUNCE, headers=headers, files=announce.payload)
+        data = r.json()
 
-        assert anr.status_code == 201
+        assert r.status_code == 201
+        assert announce.title ==  data['name']
+        assert announce.category == data['category']
+        assert announce.condition == data['condition']
+        assert announce.city == data['city']
+        assert announce.description == data['description']
+        assert announce.price == data['price']
 
