@@ -28,7 +28,7 @@ class TestRegistration:
         пользователя. Проверяем код и сообщение ответа.
         """
         user = User()
-        reg = requests.post(Url.SIGNUP, data=user.payload)
+        requests.post(Url.SIGNUP, data=user.payload)
         reg = requests.post(Url.SIGNUP, data=user.payload)
 
         assert reg.status_code == 400
