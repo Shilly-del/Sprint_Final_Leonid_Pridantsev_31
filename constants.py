@@ -1,5 +1,5 @@
 class Url:
-    API = 'https://qa-desk.stand.praktikum-services.ru/api'
+    API = 'https://urlwasthere.ru/api'
     SIGNUP = f'{API}/signup'
     SIGNIN = f'{API}/signin'
     CREATE_ANNOUNCE = f'{API}/create-listing'
